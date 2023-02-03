@@ -57,7 +57,9 @@ const App = () => {
   Quantidade de números por jogo:
   </p>
  
- 
+  <button className="decrease-button" onClick={() => setQuantityNumbers(quantityNumbers - 1)}>
+    -
+  </button>
   <input
     type="number"
     value={quantityNumbers}
@@ -68,7 +70,7 @@ const App = () => {
    <button className="increase-button" onClick={() => setQuantityNumbers(quantityNumbers + 1)}>
     +
   </button>
- 
+
 </div>
 
       </div>
