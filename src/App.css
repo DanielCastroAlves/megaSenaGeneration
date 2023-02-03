@@ -1,16 +1,19 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  background-color: #F8F9FA;
+  background-color: #f8f9fa;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   max-width: 800px;
   margin: 50px auto;
   text-align: center;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: bold;
   color: #333;
 }
@@ -26,10 +29,7 @@ h2 {
 }
 
 .form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+ 
   margin-bottom: 20px;
 }
 
@@ -45,12 +45,17 @@ h2 {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #DC3545;
+  border: 1px solid #dc3545;
   color: #333;
-  width: 60px;
   text-align: center;
+  margin-left: 10px;
 }
 
+
+.container-buttons{
+  display: flex;
+justify-content: center;
+}
 .generate-button,
 .add-button,
 .remove-button {
@@ -67,12 +72,14 @@ h2 {
   background-color: #fcba03;
   color: #fff;
   margin-right: 10px;
+  width: 200px;
 }
 
 .add-button {
   background-color: #28a745;
   color: #fff;
   margin-right: 10px;
+  width: 200px;
 }
 
 .remove-button {
@@ -88,12 +95,13 @@ h2 {
 }
 
 .game {
-  background-color: #FFF;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px #000;
   border-radius: 10px;
   margin: 20px;
-  width: 15%;
   text-align: center;
 }
 
@@ -101,8 +109,8 @@ h2 {
   display: inline-block;
   padding: 10px;
   font-size: 16px;
-  background-color: #DC3545;
-  color: #FFF;
+  background-color: #dc3545;
+  color: #fff;
   border-radius: 5px;
   margin: 10px;
 }

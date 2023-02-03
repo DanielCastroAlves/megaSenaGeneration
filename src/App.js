@@ -59,12 +59,15 @@ const App = () => {
           />
         </label>
       </div>
+      <div className="container-buttons">
+
       <button className="generate-button" onClick={generateNumbers}>
         Gerar Números
       </button>
       <button className="add-button" onClick={addGame}>
         Adicionar jogo
       </button>
+      </div>
       <div className="numbers">
         {numbers.map((numberArray, index) => (
           <div className="game" key={index}>
