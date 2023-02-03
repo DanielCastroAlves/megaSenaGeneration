@@ -1,83 +1,103 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #F0E68C;
+  background-color: #f2f2f2;
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
 }
 
-h1 {
-  font-size: 36px;
-  color: #696969;
-  margin-bottom: 40px;
+.title {
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .form {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-label {
-  margin: 0 20px;
-  font-size: 18px;
-  color: #696969;
+.form label {
+  margin-right: 20px;
 }
 
-input[type="number"] {
-  padding: 10px 20px;
-  font-size: 18px;
+.form input[type='number'] {
+  width: 60px;
+  padding: 10px;
+  border: 1px solid gray;
   border-radius: 5px;
-  border: 1px solid #696969;
-  outline: none;
+  text-align: center;
+  font-size: 16px;
 }
 
-button {
+.generate-button {
+  background-color: #ff5733;
+  color: white;
   padding: 10px 20px;
-  font-size: 18px;
-  background-color: #FF69B4;
-  color: #FFFFFF;
   border: none;
   border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: background-color 0.2s ease-in-out;
+  margin-bottom: 20px;
 }
 
-button:hover {
-  background-color: #FF1493;
+.generate-button:hover {
+  background-color: #cc4725;
 }
 
 .numbers {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 40px;
 }
 
-.numbers > div {
+.game {
+
   display: flex;
+  flex-direction: row;
   align-items: center;
   margin: 20px;
-  background-color: #FFFFFF;
-  border-radius: 5px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  box-shadow: 0px 0px 10px #A9A9A9;
 }
 
-.numbers span {
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 24px;
-  color: #696969;
-  background-color: #FF69B4;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+.game span {
+  background-color: #ff5733;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 5px 5px;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form label {
+    margin-bottom: 10px;
+  }
+
+  .game {
+    width: 100%;
+    height: auto;
+  }
 }
