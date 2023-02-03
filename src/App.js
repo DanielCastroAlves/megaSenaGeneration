@@ -70,12 +70,17 @@ const App = () => {
       <div className="numbers">
         {numbers.map((numberArray, index) => (
           <div className="game" key={index}>
-            Jogo {index + 1}:
-            {numberArray.map((number) => (
-              <span className="number" key={number}>
-                {number}
-              </span>
-            ))}
+            <div>
+              <p>Jogo{index + 1}:</p>
+            </div>
+            <div>
+              {numberArray.map((number) => (
+                <span className="number" key={number}>
+                  {number}
+                </span>
+              ))}
+            </div>
+
             <button className="remove-button" onClick={() => removeGame(index)}>
               Excluir jogo
             </button>
