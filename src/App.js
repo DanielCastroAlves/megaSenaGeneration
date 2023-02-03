@@ -23,10 +23,6 @@ const App = () => {
     setNumbers(allGeneratedNumbers);
   };
 
-  const addGame = () => {
-    setQuantityGames(quantityGames + 1);
-  };
-
   const removeGame = (index) => {
     let newNumbers = [...numbers];
     newNumbers.splice(index, 1);
@@ -38,33 +34,48 @@ const App = () => {
     <div className="container">
       <h1 className="title">Gerador de Números para Mega-Sena</h1>
       <div className="form">
-        <label>
-          Quantidade de jogos:
-          <input
-            type="number"
-            value={quantityGames}
-            min="1"
-            max="15"
-            onChange={(e) => setQuantityGames(e.target.value)}
-          />
-        </label>
-        <label>
-          Quantidade de números por jogo:
-          <input
-            type="number"
-            value={quantityNumbers}
-            min="6"
-            max="15"
-            onChange={(e) => setQuantityNumbers(e.target.value)}
-          />
-        </label>
+      <div>
+        <p> Quantidade de jogos:</p>
+ 
+        <button className="decrease-button" onClick={() => setQuantityGames(quantityGames - 1)}>
+    -
+  </button>
+  <input
+    type="number"
+    value={quantityGames}
+    min="1"
+    max="15"
+    onChange={(e) => setQuantityGames(e.target.value)}
+  />
+   <button className="increase-button" onClick={() => setQuantityGames(quantityGames + 1)}>
+    +
+  </button>
+ 
+</div>
+<div>
+  <p>
+  Quantidade de números por jogo:
+  </p>
+ 
+ 
+  <input
+    type="number"
+    value={quantityNumbers}
+    min="6"
+    max="15"
+    onChange={(e) => setQuantityNumbers(e.target.value)}
+  />
+   <button className="increase-button" onClick={() => setQuantityNumbers(quantityNumbers + 1)}>
+    +
+  </button>
+ 
+</div>
+
       </div>
       <div className="container-buttons">
+        
         <button className="generate-button" onClick={generateNumbers}>
           Gerar Números
-        </button>
-        <button className="add-button" onClick={addGame}>
-          Adicionar jogo
         </button>
       </div>
       <div className="numbers">
