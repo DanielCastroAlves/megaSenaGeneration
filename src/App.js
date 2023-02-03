@@ -23,6 +23,17 @@ const App = () => {
     setNumbers(allGeneratedNumbers);
   };
 
+  const addGame = () => {
+    setQuantityGames(quantityGames + 1);
+  };
+
+  const removeGame = (index) => {
+    let newNumbers = [...numbers];
+    newNumbers.splice(index, 1);
+    setNumbers(newNumbers);
+    setQuantityGames(quantityGames - 1);
+  };
+
   return (
     <div className="container">
       <h1 className="title">Gerador de Números para Mega-Sena</h1>
@@ -51,6 +62,9 @@ const App = () => {
       <button className="generate-button" onClick={generateNumbers}>
         Gerar Números
       </button>
+      <button className="add-button" onClick={addGame}>
+        Adicionar jogo
+      </button>
       <div className="numbers">
         {numbers.map((numberArray, index) => (
           <div className="game" key={index}>
@@ -60,6 +74,9 @@ const App = () => {
                 {number}
               </span>
             ))}
+            <button className="remove-button" onClick={() => removeGame(index)}>
+              Excluir jogo
+            </button>
           </div>
         ))}
       </div>
@@ -68,3 +85,4 @@ const App = () => {
 };
 
 export default App;
+
