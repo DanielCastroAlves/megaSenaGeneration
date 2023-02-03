@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import html2canvas from "html2canvas";
 import "./App.css";
 
 const App = () => {
@@ -30,78 +31,135 @@ const App = () => {
     setQuantityGames(quantityGames - 1);
   };
 
+  const saveAsImage = () => {
+    html2canvas(document.querySelector(".numbers"), {
+      backgroundColor: null,
+      allowTaint: true,
+    }).then((canvas) => {
+      let a = document.createElement("a");
+      a.href = canvas.toDataURL("image/jpeg");
+      a.download = "megagames.jpeg";
+      a.click();
+    });
+  };
+
+  const resetApplication = () => {
+    setNumbers([]);
+    setQuantityGames(1);
+    setQuantityNumbers(6);
+  };
+
   return (
     <div className="container">
       <h1 className="title">Gerador de Números para Mega-Sena</h1>
       <div className="form">
-      <div>
-        <p> Quantidade de jogos:</p>
- 
-        <button className="decrease-button" onClick={() => setQuantityGames(quantityGames - 1)}>
-    -
-  </button>
-  <input
-    type="number"
-    value={quantityGames}
-    min="1"
-    max="15"
-    onChange={(e) => setQuantityGames(e.target.value)}
-  />
-   <button className="increase-button" onClick={() => setQuantityGames(quantityGames + 1)}>
-    +
-  </button>
- 
-</div>
-<div>
-  <p>
-  Quantidade de números por jogo:
-  </p>
- 
-  <button className="decrease-button" onClick={() => setQuantityNumbers(quantityNumbers - 1)}>
-    -
-  </button>
-  <input
-    type="number"
-    value={quantityNumbers}
-    min="6"
-    max="15"
-    onChange={(e) => setQuantityNumbers(e.target.value)}
-  />
-   <button className="increase-button" onClick={() => setQuantityNumbers(quantityNumbers + 1)}>
-    +
-  </button>
-
-</div>
-
-      </div>
-      <div className="container-buttons">
-        
-        <button className="generate-button" onClick={generateNumbers}>
-          Gerar Números
-        </button>
-      </div>
-      <div className="numbers">
-        {numbers.map((numberArray, index) => (
-          <div className="game" key={index}>
-            <div>
-              <p>Jogo{index + 1}:</p>
-            </div>
-            <div>
-              {numberArray.map((number) => (
-                <span className="number" key={number}>
-                  {number}
-                </span>
-              ))}
-            </div>
-
-            <button className="remove-button" onClick={() => removeGame(index)}>
-              Excluir jogo
-            </button>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default App;
+        <div>
+          <p> Quantidade de jogos:</p>
+          <button
+            className="decrease-button"
+            onClick={() => {
+              if (quantityGames - 1 >= 1 && quantityGames - 1 <= 15) {
+                setQuantityGames(quantityGames - 1);
+              } else {
+                alert(
+                  "Valor inválido, o número de jogos deve ser entre 1 e 15"
+                );
+              }
+            }}
+          >
+            -
+          </button>
+          <input
+            type="number"
+            value={quantityGames}
+            min="1"
+            max="15"
+            onChange={(e) => setQuantityGames(e.target.value)}
+          />
+          <button
+            className="increase-button"
+            onClick={() => {
+              if (quantityGames + 1 >= 1 && quantityGames + 1 <= 15) {
+                setQuantityGames(quantityGames + 1);
+              } else {
+                alert(
+                  "Valor inválido, o número de jogos deve ser entre 1 e 15");
+                }
+                }}
+                >
+                +
+                </button>
+                </div>
+                <div>
+                <p>Quantidade de números por jogo:</p>
+                <button
+                className="decrease-button"
+                onClick={() => {
+                if (quantityNumbers - 1 >= 6 && quantityNumbers - 1 <= 15) {
+                setQuantityNumbers(quantityNumbers - 1);
+                } else {
+                alert(
+                "Valor inválido, a quantidade de números por jogo deve ser entre 6 e 15"
+                );
+                }
+                }}
+                >
+                -
+                </button>
+                <input
+                type="number"
+                value={quantityNumbers}
+                min="6"
+                max="15"
+                onChange={(e) => setQuantityNumbers(e.target.value)}
+                />
+                <button
+                className="increase-button"
+                onClick={() => {
+                if (quantityNumbers + 1 >= 6 && quantityNumbers + 1 <= 15) {
+                setQuantityNumbers(quantityNumbers + 1);
+                } else {
+                alert(
+                "Valor inválido, a quantidade de números por jogo deve ser entre 6 e 15"
+                );
+                }
+                }}
+                >
+                +
+                </button>
+                </div>
+                </div>
+                <div className="buttons">
+                <button className="generate-button" onClick={generateNumbers}>
+                Gerar Números
+                </button>
+                <button className="remove-button" onClick={resetApplication}>
+                Resetar Aplicação
+                </button>
+                <button className="save-button" onClick={saveAsImage}>
+                Salvar Como Imagem
+                </button>
+                </div>
+                <div className="numbers">
+                {numbers.map((game, index) => (
+                <div className="game" key={index}>
+                <div className="game-title">Jogo {index + 1}</div>
+                {game.map((number) => (
+                <div className="number" key={number}>
+                {number}
+                </div>
+                ))}
+                <button
+                className="remove-game-button"
+                onClick={() => removeGame(index)}
+                >
+                Remover Jogo
+                </button>
+                </div>
+                ))}
+                </div>
+                </div>
+                );
+                };
+                
+                export default App;

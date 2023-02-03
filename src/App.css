@@ -200,12 +200,16 @@ input[type="number"] {
 .number {
   display: inline-block;
   padding: 10px;
-  font-size: 16px;
-  background-color: #dc3545;
+  font-size: 18px;
+  background-color: #f5a623;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
   margin: 10px;
-}
+  }
 
 @media (max-width: 576px) {
   .container {
