@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import html2canvas from "html2canvas";
 import "./App.css";
+import { BiXCircle } from "react-icons/bi";
 
 const App = () => {
   const [numbers, setNumbers] = useState([]);
@@ -83,83 +84,88 @@ const App = () => {
                 setQuantityGames(quantityGames + 1);
               } else {
                 alert(
-                  "Valor inválido, o número de jogos deve ser entre 1 e 15");
-                }
-                }}
-                >
-                +
-                </button>
-                </div>
-                <div>
-                <p>Quantidade de números por jogo:</p>
-                <button
-                className="decrease-button"
-                onClick={() => {
-                if (quantityNumbers - 1 >= 6 && quantityNumbers - 1 <= 15) {
+                  "Valor inválido, o número de jogos deve ser entre 1 e 15"
+                );
+              }
+            }}
+          >
+            +
+          </button>
+        </div>
+        <div>
+          <p>Quantidade de números por jogo:</p>
+          <button
+            className="decrease-button"
+            onClick={() => {
+              if (quantityNumbers - 1 >= 6 && quantityNumbers - 1 <= 15) {
                 setQuantityNumbers(quantityNumbers - 1);
-                } else {
+              } else {
                 alert(
-                "Valor inválido, a quantidade de números por jogo deve ser entre 6 e 15"
+                  "Valor inválido, a quantidade de números por jogo deve ser entre 6 e 15"
                 );
-                }
-                }}
-                >
-                -
-                </button>
-                <input
-                type="number"
-                value={quantityNumbers}
-                min="6"
-                max="15"
-                onChange={(e) => setQuantityNumbers(e.target.value)}
-                />
-                <button
-                className="increase-button"
-                onClick={() => {
-                if (quantityNumbers + 1 >= 6 && quantityNumbers + 1 <= 15) {
+              }
+            }}
+          >
+            -
+          </button>
+          <input
+            type="number"
+            value={quantityNumbers}
+            min="6"
+            max="15"
+            onChange={(e) => setQuantityNumbers(e.target.value)}
+          />
+          <button
+            className="increase-button"
+            onClick={() => {
+              if (quantityNumbers + 1 >= 6 && quantityNumbers + 1 <= 15) {
                 setQuantityNumbers(quantityNumbers + 1);
-                } else {
+              } else {
                 alert(
-                "Valor inválido, a quantidade de números por jogo deve ser entre 6 e 15"
+                  "Valor inválido, a quantidade de números por jogo deve ser entre 6 e 15"
                 );
-                }
-                }}
-                >
-                +
-                </button>
-                </div>
-                </div>
-                <div className="buttons">
-                <button className="generate-button" onClick={generateNumbers}>
-                Gerar Números
-                </button>
-                <button className="remove-button" onClick={resetApplication}>
-                Resetar Aplicação
-                </button>
-                <button className="save-button" onClick={saveAsImage}>
-                Salvar Como Imagem
-                </button>
-                </div>
-                <div className="numbers">
-                {numbers.map((game, index) => (
-                <div className="game" key={index}>
-                <div className="game-title">Jogo {index + 1}</div>
-                {game.map((number) => (
-                <div className="number" key={number}>
+              }
+            }}
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div className="buttons">
+        <button className="generate-button" onClick={generateNumbers}>
+          Gerar Números
+        </button>
+      </div>
+      <div className="numbers">
+        {numbers.map((game, index) => (
+          <div className="game" key={index}>
+            <div className="game-title">Jogo {index + 1}</div>
+            <div>
+            {game.map((number) => (
+              <div className="number" key={number}>
                 {number}
-                </div>
-                ))}
-                <button
-                className="remove-game-button"
-                onClick={() => removeGame(index)}
-                >
-                Remover Jogo
-                </button>
-                </div>
-                ))}
-                </div>
-                </div>
-                );
-                };
-                
-                export default App;
+              </div>
+            ))}
+            </div>
+           
+            <BiXCircle
+            className="excluir"
+              onClick={() => removeGame(index)}
+             
+            />
+          </div>
+        ))}
+      </div>
+      <div className="container-buttons">
+        <button className="reset-button" onClick={resetApplication}>
+          Fazer Novo Jogo
+        </button>
+        <button className="save-button" onClick={saveAsImage}>
+          Salvar Jogo
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default App;

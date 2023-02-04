@@ -65,7 +65,7 @@ h2 {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #dc3545;
+  border:dashed 2px #183855;
   color: #333;
   text-align: center;
   margin-bottom: 20px;
@@ -95,7 +95,6 @@ h2 {
   color: #fff;
   margin-right: 10px;
   width: 200px;
-
 }
 
 .increase-button {
@@ -123,15 +122,12 @@ h2 {
   border-radius: 5px;
   transition: background-color 0.2s ease-in-out;
   border: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
 }
 .decrease-button:hover {
   background-color: rgb(204, 0, 0);
 }
-
-
-
-
-
 
 input[type="number"] {
   padding: 0.5em;
@@ -143,8 +139,13 @@ input[type="number"] {
   margin: 0 0.5em;
 }
 
+.container-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-.remove-button {
+.reset-button {
   background-color: #cf0216;
   color: #fff;
   padding: 10px 20px;
@@ -155,6 +156,28 @@ input[type="number"] {
   box-shadow: 2px 2px 5px gray;
   text-align: center;
   text-decoration: none;
+  margin-right: 20px;
+}
+
+.save-button {
+  background-color: #189cad;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px gray;
+  text-align: center;
+  text-decoration: none;
+}
+
+.excluir {
+  
+  color: white;
+  font-size: 2em;
+  background-color: red;
+  border-radius: 50%;
 }
 
 .game {
@@ -171,10 +194,11 @@ input[type="number"] {
   transition: all 0.2s ease-in-out;
 }
 
-.game p {
+.game-title {
   font-weight: bold;
   color: #333;
   font-family: Arial, sans-serif;
+  
 }
 
 .game:hover {
@@ -209,7 +233,7 @@ input[type="number"] {
   text-align: center;
   font-weight: bold;
   margin: 10px;
-  }
+}
 
 @media (max-width: 576px) {
   .container {
@@ -221,11 +245,6 @@ input[type="number"] {
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
-  }
-
-  .container-buttons {
-    flex-direction: column;
-    align-items: center;
   }
 }
 
@@ -245,12 +264,37 @@ input[type="number"] {
 
 @media (max-width: 375px) {
   .numbers {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     margin: 10px;
     max-height: calc(100vh - 20px);
   }
+}
+@media (max-width: 375px) {
   .game {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     margin: 10px;
   }
+
+  .game-title {
+    font-weight: bold;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .excluir {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 2em;
+    background-color: red;
+    border-radius: 50%;
+  }
+
+  
 }
+
